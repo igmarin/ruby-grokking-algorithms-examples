@@ -20,4 +20,20 @@ describe 'BinarySearch' do
       assert_equal 'Your number is 15 with 5 moves', subject.integer_search
     end
   end
+
+  describe 'BinarySearch#string_search' do
+    before(:all) do
+      @arr = %w[Barbie Blondie Chester Billie Myriam Nonina Yeye]
+    end
+
+    it 'Should Return Billie with 3 moves' do
+      subject = BinarySearch.new(arr: @arr, element: 'Billie')
+      assert_equal 'Your search took 2 moves', subject.string_search
+    end
+
+    it 'Should Return Yeye with 3 moves' do
+      subject = BinarySearch.new(arr: @arr, element: 'Yeye')
+      assert_equal 'Your search took 3 moves', subject.string_search
+    end
+  end
 end
