@@ -19,6 +19,11 @@ describe 'BinarySearch' do
       subject = BinarySearch.new(arr: (1..100).to_a, element: 15)
       assert_equal 'Your number is 15 with 5 moves', subject.integer_search
     end
+
+    it 'Should Return None' do
+      subject = BinarySearch.new(arr: (1..10), element: -1)
+      assert_equal 'Invalid number to search', subject.integer_search
+    end
   end
 
   describe 'BinarySearch#string_search' do
@@ -34,6 +39,11 @@ describe 'BinarySearch' do
     it 'Should Return Yeye with 3 moves' do
       subject = BinarySearch.new(arr: @arr, element: 'Yeye')
       assert_equal 'Your search took 3 moves', subject.string_search
+    end
+
+    it 'Should Return No string found' do
+      subject = BinarySearch.new(arr: @arr, element: 'WADFSDFA')
+      assert_equal 'No string found', subject.string_search
     end
   end
 end

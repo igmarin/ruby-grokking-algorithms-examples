@@ -11,10 +11,12 @@ class BinarySearch
   end
 
   def string_search
-    "Your search took #{search[:moves]} moves"
+    search ? "Your search took #{search[:moves]} moves" : 'No string found'
   end
 
   def integer_search
+    return 'Invalid number to search' unless search
+
     moves, element = search.values
     "Your number is #{element} with #{moves} moves"
   end
@@ -30,7 +32,6 @@ class BinarySearch
       guess = arr[mid]
       moves += 1
       guess > element ? (high = mid - 1) : (low = mid + 1)
-
       return { moves: moves, element: element } if guess == element
     end
   end
